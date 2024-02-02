@@ -528,3 +528,14 @@ Sign-In & Sign-Up form */
   color: var(--green-0--);
   text-decoration: underline;
 }
+.form-error {
+  color: rgb(245, 19, 19);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+@media (max-width: 576px) {
+  .sign-in-form-container,
+  .sign-up-form-container {
+    padding: 1.75rem 0.75rem;
+  }
+}

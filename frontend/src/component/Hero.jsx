@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import GeneralButton from "./GeneralButton";
 
@@ -27,7 +26,13 @@ const Hero = () => {
           <GeneralButton btnText="Get Started" />
         </div>
         <div className="hero-side-2">
-          <img src="./hero.svg" alt="hero-picture" />
+          <motion.img
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3, ease: "anticipate" }}
+            src="./hero.svg"
+            alt="hero-picture"
+          />
         </div>
       </div>
     </section>

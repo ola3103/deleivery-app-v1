@@ -1,22 +1,63 @@
 import { Link } from "react-router-dom";
 import { motion, spring } from "framer-motion";
 
+import { useForm } from "react-hook-form";
+
 const SignUpPage = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = handleSubmit((data) => {
+    console.log(data);
+  });
+
+  console.log(errors);
+
   return (
-    <form className="sign-up-form">
+    <form className="sign-up-form" onSubmit={handleSubmit(onSubmit)}>
       <div className="container sign-up-form-container">
         <h2 className="sign-up-form-header">Sign Up Here</h2>
         <label className="sign-up-label">
           Full Name
-          <input className="sign-up-input" type="text" />
+          <input
+            className="sign-up-input"
+            {...register("firstName", { required: "This field is required" })}
+            type="text"
+          />
+          {errors.firstName && (
+            <span className="form-error">{errors.firstName.message}</span>
+          )}
         </label>
         <label className="sign-up-label">
           Email
-          <input className="sign-up-input" type="email" />
+          <input
+            {...register("email", { required: "This field is required" })}
+            className="sign-up-input"
+            type="email"
+          />
+          {errors.email && (
+            <span className="form-error">{errors.email.message}</span>
+          )}
         </label>
         <label className="sign-up-label">
           Password
-          <input className="sign-up-input" type="password" />
+          <input
+            {...register("password", {
+              required: "This field is required",
+              maxLength: {
+                value: 6,
+                message: "Password must be greater than 6 characters",
+              },
+            })}
+            className="sign-up-input"
+            type="password"
+          />
+          {errors.password && (
+            <span className="form-error">{errors.password.message}</span>
+          )}
         </label>
         <motion.button
           initial={{ background: "#139a43" }}
