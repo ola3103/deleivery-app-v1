@@ -14,7 +14,7 @@ exports.signUp = async (req, res, next) => {
   }
   const userExist = await User.findOne({ email });
   if (userExist) {
-    throw new CustomError("User already exist");
+    throw new CustomError("User already exist", 400);
   }
   if (password.length <= 6) {
     throw new CustomError("Password must be greater than 6 characters");

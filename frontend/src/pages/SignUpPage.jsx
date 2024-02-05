@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion, spring } from "framer-motion";
+import * as apiClient from "../api-clients";
 
 import { useForm } from "react-hook-form";
 
@@ -11,10 +12,9 @@ const SignUpPage = () => {
   } = useForm();
 
   const onSubmit = handleSubmit((data) => {
+    apiClient.signUpApi(data);
     console.log(data);
   });
-
-  console.log(errors);
 
   return (
     <form className="sign-up-form" onSubmit={handleSubmit(onSubmit)}>
@@ -24,11 +24,11 @@ const SignUpPage = () => {
           Full Name
           <input
             className="sign-up-input"
-            {...register("firstName", { required: "This field is required" })}
+            {...register("fullName", { required: "This field is required" })}
             type="text"
           />
-          {errors.firstName && (
-            <span className="form-error">{errors.firstName.message}</span>
+          {errors.fullName && (
+            <span className="form-error">{errors.fullName.message}</span>
           )}
         </label>
         <label className="sign-up-label">
@@ -47,7 +47,7 @@ const SignUpPage = () => {
           <input
             {...register("password", {
               required: "This field is required",
-              maxLength: {
+              minLength: {
                 value: 6,
                 message: "Password must be greater than 6 characters",
               },
