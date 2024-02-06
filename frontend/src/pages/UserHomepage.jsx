@@ -4,7 +4,6 @@ import UserNavBar from "../component/UserNavBar";
 const UserHomepage = () => {
   return (
     <section>
-      <UserNavBar />
       <NewDeliveryForm />
     </section>
   );

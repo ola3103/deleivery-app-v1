@@ -551,47 +551,16 @@ USER NAVBAR
   padding-bottom: 1.75rem;
   border-bottom: 0.5px solid rgba(0, 0, 0, 0.08);
 }
-.user-navbar-menu {
-  margin-left: auto;
-  margin-right: 1.25rem;
-  position: relative;
-}
-.user-navbar-menu:hover .user-menu-content {
-  display: flex;
-}
-
 .user-navbar-link {
   display: flex;
   align-items: center;
   font-weight: 600;
   cursor: pointer;
-}
-.user-navbar-link span {
-  margin-top: 0.5rem;
-  margin-left: 0.5rem;
   color: var(--black--);
 }
-.user-menu-content {
-  display: flex;
-  flex-direction: column;
-  background: var(--white--);
-  position: absolute;
-  width: 7rem;
-  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
-    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-  margin-top: 0.45rem;
-  padding: 0.5rem;
-  z-index: 1;
-  display: none;
-  transition: all 0.2s ease-in-out;
-}
-.single-menu-content {
-  font-size: 0.875rem;
-  cursor: pointer;
-  padding: 0.35rem 0;
-}
-.single-menu-content:first-child {
-  border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
+.user-navbar-order-link {
+  margin-left: auto;
+  margin-right: 1.25rem;
 }
 .user-navbar-notification button {
   color: var(--black--);
@@ -600,9 +569,8 @@ USER NAVBAR
   cursor: pointer;
   font-size: 20px;
   margin-top: 0.5rem;
-  margin-right: 1.25rem;
+  margin-right: 1.5rem;
 }
-
 .user-logout-btn button {
   color: var(--black--);
   background: none;
@@ -663,7 +631,7 @@ NEW DELIVERY FORM
   border-bottom: 1px solid var(--green-0--);
   outline: none;
 }
-.pickup-input:focus {
+.delivery-input:focus {
   border-bottom: 1px solid var(--green-2--);
 }
 .delivery-info {
@@ -686,4 +654,108 @@ NEW DELIVERY FORM
 .delivery-distance-1,
 .delivery-price-1 {
   font-weight: 600;
+}
+.payment-btn {
+  border: none;
+  background: var(--green-0--);
+  color: var(--white--);
+  padding: 0.75rem 0;
+  width: 100%;
+  text-align: center;
+  font-weight: 600;
+  font-family: "Maven Pro", sans-serif;
+  font-size: 1rem;
+  margin-top: 2rem;
+}
+/* -------------------------
+ORDER PAGE
+--------------------------- */
+.orders-section {
+  margin-top: 2rem;
+}
+.orders-heading {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+.single-order-type {
+  margin-right: 1rem;
+  color: var(--gray-0--);
+  font-weight: 600;
+}
+.orders-type {
+  display: flex;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  padding-bottom: 0.5rem;
+}
+.table-container {
+  width: 100%;
+  overflow: auto;
+  margin-top: 1rem;
+}
+.table-container::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+.table-container::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 1rem;
+}
+.table-container::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 1rem;
+}
+table {
+  text-align: left;
+  border-spacing: 0;
+}
+table td {
+  padding: 0 1rem;
+}
+.address-width {
+  min-width: 200px;
+}
+table td {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+}
+table th {
+  padding-bottom: 0.125rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-right: none;
+  border-left: none;
+}
+table th:first-child {
+  border-left: 1px solid rgba(0, 0, 0, 0.3);
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+table th:last-child {
+  border-right: 1px solid rgba(0, 0, 0, 0.3);
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+table tr:hover {
+  background: #d7dadf;
+}
+/* -------------------------
+LAYOUT
+--------------------------- */
+.layout-container {
+  display: flex;
+  flex-direction: column;
+}
+.layout-box {
+  min-height: 100vh;
+}
+/* -------------------------
+Map
+--------------------------- */
+#map {
+  height: 500px;
+}
+.space {
+  padding: 5rem 0;
 }

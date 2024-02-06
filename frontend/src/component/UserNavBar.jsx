@@ -7,21 +7,14 @@ const UserNavBar = () => {
     <nav className="user-navbar-container">
       <ul className="user-navbar-item container">
         <li className="user-navbar-single-item">
-          <Link to="/" className="user-navbar-link">
+          <Link to="/user-homepage" className="user-navbar-link">
             Logo
           </Link>
         </li>
-        <li className="user-navbar-single-item user-navbar-menu">
-          <a className="user-navbar-link">
-            Menu
-            <span>
-              <IoIosArrowDown />
-            </span>
-          </a>
-          <p className="user-menu-content">
-            <span className="single-menu-content">My Bookings</span>
-            <span className="single-menu-content">Profile</span>
-          </p>
+        <li className="user-navbar-single-item user-navbar-order-link">
+          <Link to="/orders" className="user-navbar-link">
+            Order History
+          </Link>
         </li>
         <li className="user-navbar-single-item user-navbar-notification">
           <button>
