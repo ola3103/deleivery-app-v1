@@ -6,7 +6,7 @@ function LocationMarker() {
   const map = useMapEvents({
     locationfound(e) {
       setPosition(e.latlng);
-      map.flyTo(e.latlng, map.getZoom());
+      map.setView(e.latlng, map.getZoom());
     },
   });
 

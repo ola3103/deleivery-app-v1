@@ -1,10 +1,15 @@
 import NewDeliveryForm from "../component/NewDeliveryForm";
-import UserNavBar from "../component/UserNavBar";
+import Map from "../component/Map";
 
 const UserHomepage = () => {
   return (
-    <section>
-      <NewDeliveryForm />
+    <section className="user-homepage-section container">
+      <div className="new-delivery-form-box">
+        <NewDeliveryForm />
+      </div>
+      <div className="map-box">
+        <Map />
+      </div>
     </section>
   );
 };

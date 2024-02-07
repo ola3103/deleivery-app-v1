@@ -588,9 +588,9 @@ NEW DELIVERY FORM
   align-items: center;
   padding: 0.5rem 1rem;
 }
-.newdelivery-form {
+/* .newdelivery-form {
   width: 30%;
-}
+} */
 .top-form-part-2 {
   color: var(--white--);
   font-size: 0.9rem;
@@ -753,9 +753,36 @@ LAYOUT
 /* -------------------------
 Map
 --------------------------- */
-#map {
-  height: 500px;
+.user-homepage-section {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 1.5rem;
 }
-.space {
-  padding: 5rem 0;
+.new-delivery-form-box {
+  width: 30%;
+  overflow-y: auto;
+  height: 400px;
+  padding: 0.5rem;
+}
+.new-delivery-form-box::-webkit-scrollbar {
+  width: 0.5rem;
+}
+.new-delivery-form-box::-webkit-scrollbar-thumb {
+  background: var(--green-1--);
+  border-radius: 1rem;
+}
+.new-delivery-form-box::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 1rem;
+}
+.map-box {
+  width: 70%;
+  padding: 0.5rem 3rem;
+  border-radius: 0.5rem;
+}
+#map {
+  height: 400px;
+  width: 100%;
+  border-radius: 0.5rem;
 }

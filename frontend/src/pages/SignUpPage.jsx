@@ -1,18 +1,23 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { motion, spring } from "framer-motion";
 import * as apiClient from "../api-clients";
 
 import { useForm } from "react-hook-form";
 
 const SignUpPage = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = handleSubmit((data) => {
-    apiClient.signUpApi(data);
+  const onSubmit = handleSubmit(async (data) => {
+    const res = await apiClient.signUpApi(data);
+    console.log(res);
+    if (res.status === 201) {
+      navigate("/user-homepage");
+    }
     console.log(data);
   });
 
@@ -23,6 +28,7 @@ const SignUpPage = () => {
         <label className="sign-up-label">
           Full Name
           <input
+            autoComplete="off"
             className="sign-up-input"
             {...register("fullName", { required: "This field is required" })}
             type="text"
@@ -34,6 +40,7 @@ const SignUpPage = () => {
         <label className="sign-up-label">
           Email
           <input
+            autoComplete="off"
             {...register("email", { required: "This field is required" })}
             className="sign-up-input"
             type="email"
@@ -45,6 +52,7 @@ const SignUpPage = () => {
         <label className="sign-up-label">
           Password
           <input
+            autoComplete="off"
             {...register("password", {
               required: "This field is required",
               minLength: {

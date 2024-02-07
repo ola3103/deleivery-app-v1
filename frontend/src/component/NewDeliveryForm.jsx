@@ -3,7 +3,7 @@ import { MdPlayArrow } from "react-icons/md";
 
 const NewDeliveryForm = () => {
   return (
-    <form className="newdelivery-form container">
+    <form className="newdelivery-form">
       <div className="top-form-part">
         <Link to="/">Logo</Link>
         <p className="top-form-part-2">Speed, Reliable and Secure</p>

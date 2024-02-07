@@ -1,5 +1,6 @@
 import axios from "axios";
 import handleNotification from "./utils/notification";
+import { useNavigate } from "react-router-dom";
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -10,8 +11,8 @@ export const signUpApi = async (data) => {
       data,
       { withCredentials: true }
     );
-    console.log(response);
     handleNotification("success", "Registration Successful");
+    return response;
   } catch (error) {
     console.log(error);
     handleNotification("error", error.response.data.message);
@@ -27,6 +28,7 @@ export const signInApi = async (data) => {
     );
     console.log(response);
     handleNotification("success", "Log in successful");
+    return response;
   } catch (error) {
     console.log(error);
     handleNotification("error", error.response.data.message);

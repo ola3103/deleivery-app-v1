@@ -1,18 +1,22 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { motion, spring } from "framer-motion";
 import { useForm } from "react-hook-form";
 import * as apiClient from "../api-clients";
 
 const SignInPage = () => {
+  const navigate = useNavigate();
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
 
-  const onSubmit = handleSubmit((data) => {
-    apiClient.signInApi(data);
-    console.log(data);
+  const onSubmit = handleSubmit(async (data) => {
+    const res = await apiClient.signInApi(data);
+    if (res.status === 200) {
+      navigate("/user-homepage");
+    }
+    console.log(res.status);
   });
 
   return (
@@ -22,6 +26,7 @@ const SignInPage = () => {
         <label className="sign-in-label">
           Email
           <input
+            autoComplete="off"
             {...register("email", { required: "This field is required" })}
             className="sign-in-input"
             type="email"
@@ -33,6 +38,7 @@ const SignInPage = () => {
         <label className="sign-in-label">
           Password
           <input
+            autoComplete="off"
             {...register("password", {
               required: "this field is required",
               minLength: {
