@@ -7,6 +7,7 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
 const authRouter = require("./routes/auth");
+const OrderRouter = require("./routes/order");
 const globalErrorHandler = require("./controller/errorController");
 
 app.use(express.json());
@@ -19,6 +20,7 @@ app.use(
 );
 
 app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/orders", OrderRouter);
 app.use(globalErrorHandler);
 app.all("*", (req, res) => {
   res
